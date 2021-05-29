@@ -38,11 +38,13 @@ class UsersRepository implements IUsersRepository {
       throw new Error("Mensagem do erro");
     }
     userExistent.admin = true;
+    userExistent.updated_at = new Date();
+
     return userExistent;
   }
 
   list(): User[] {
-    return this.users;
+    return [...this.users];
   }
 }
 
